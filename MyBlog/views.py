@@ -113,4 +113,4 @@ class Blogs(View):
 
 class CateLink(View):
     def get(self, request):
-        
+        pass
