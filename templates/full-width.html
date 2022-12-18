@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+    博客
+{% endblock %}
+
+{% block main %}
+		<div class="content-body">
+			<div class="container">
+				<div class="row">
+					<main class="col-md-12">
+                        {% for art in Article %}
+                        <article class="post post-1">
+                            <header class="entry-header">
+                                <h1 class="entry-title">
+                                    <a href="{% url 'MyBlog:single' art.id %}">{{ art.title }}</a>
+                                </h1>
+                                <div class="entry-meta">
+                                    <span class="post-category"><a href="{% url 'MyBlog:single' art.id %}">{{ art.category }}</a></span>
+                                    <span class="post-date"><a href="{% url 'MyBlog:single' art.id %}"><time class="entry-date"
+                                                                              datetime="2012-11-09T23:15:57+00:00">{{ art.create }}</time></a></span>
+        {#                            <span class="post-author"><a href="#">追梦人物</a></span>#}
+        {#                            <span class="comments-link"><a href="#">4 评论</a></span>#}
+        {#                            <span class="views-count"><a href="#">588 阅读</a></span>#}
+                                </div>
+                            </header>
+                            <div class="entry-content clearfix">
+                                <p>{{ art.desc }}</p>
+                                <div class="read-more cl-effect-14">
+                                    <a href="{% url 'MyBlog:single' art.id %}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    <div class="pagination">
+                        {% if pages.has_previous %}
+                            <a href="{% url 'MyBlog:blogs' pages.previous_page_number %}">上一页</a>
+                        {% endif %}
+                        {%for pindex in pages%}
+                        <!--如果选择的是当前页，则标记为活动样式-->
+                            {%if pindex == pages.number%}
+                                <a href="#" class="current">{{pindex}}</a>
+                            {%else%}
+                                <a href="{% url 'MyBlog:blogs' pindex %}">{{pindex}}</a>
+                            {%endif%}
+                        {%endfor%}
+                        {% if pages.has_next %}
+                            <a href="{% url 'MyBlog:blogs' pages.next_page_number %}">下一页></a>
+                        {% endif %}
+                    </div>
+					</main>
+				</div>
+			</div>
+		</div>
+{% endblock %}
