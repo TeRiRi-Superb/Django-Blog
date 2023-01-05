@@ -1,0 +1,46 @@
+{% extends 'base/login_base.html' %}
+{% block login_title %}
+登录
+{% endblock %}
+{% block login_main %}
+    <div class="main">
+        <div class="form">
+            <a class="on" id="landing" href="{% url 'User:login' %}">登录</a>
+            <a class="not-on" id="registered" href="{% url 'User:register' %}">注册</a>
+            <div class="fix"></div>
+
+            <form type="POST" action="" id="landing-content" data-form="ajax">
+                {% csrf_token %}
+                <div class="auth-inp">
+                    <div id="icon-box"><a onclick="github_login()" class="git-icon" href="javascript:void(0);"></a>
+                    </div>
+                    <div class="tips">
+                        <p class="fl">Github授权登录</p>
+                    </div>
+                </div>
+                <!--错误信息提示-->
+                <span class="error ta-c">
+                </span>
+                <!--错误信息提示-->
+                <div class="inp" style="margin-top: 0">
+                    <label>
+                        <input class="inp-input" data-block="true" type="text" data-required="请输入用户名或者邮箱" id="user_name"
+                            name="user_name" placeholder="用户名或者邮箱" />
+                    </label>
+                </div>
+                <div class="inp"><label><input class="inp-input" data-block="true" type="password" data-required="请输入密码"
+                            id="pwd" name="pwd" placeholder="密码" /></label>
+                </div>
+                <div class="inp"><label><input class="inp-input" data-block="true" type="text" id="code" name="code"
+                            data-required="请输入验证码" placeholder="输入验证码" /></label></div>
+                <div class="code-box" style="cursor: pointer;"><img id="code_img" src="../img/verify-code.png" alt="" />
+                </div>
+                <button id="login" type="submit" class="login">登录</button>
+                <div id="bottom">
+                    <a href="{% url 'MyBlog:index' %}" id="registeredtxt">回到首页</a>
+                    <a href="forget-pwd.html" id="forgotpassword" onclick="">忘记密码</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

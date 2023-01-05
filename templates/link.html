@@ -1,0 +1,22 @@
+{% extends 'base/base1.html' %}
+{% load static %}
+
+{% block CSSBlock %}
+{% include 'html_CSS/IndexCSS.html' %}
+    <link rel="stylesheet" href="{% static 'css/link.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="big-container">
+        <article class="article">
+            <!--友情链接-->
+            <ul class="link-box">
+                <li>
+                    <a href="https://www.cangmangai.cn/" target="_blank">苍茫误此生博客</a>
+                    <span class="description">致力于分享web编程技术知识</span>
+                </li>
+            </ul>
+        </article>
+    </div>
+
+{% endblock %}

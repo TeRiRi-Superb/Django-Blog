@@ -14,14 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 import tinymce.urls
+from django.views import static ##新增
+from django.conf import settings ##新增
+from django.conf.urls import url ##新增
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('MyBlog.urls', 'MyBlog'), namespace='MyBlog')),
     path('tinymce/', include('tinymce.urls')),  # 富文本编辑器
+    path('user/', include(('User.urls', 'User'), namespace='User')),
 
+    url(r'^static/(?P<path>.*)$', static.serve,
+        {'document_root': settings.STATIC_ROOT}, name='static'),
+
+    path(r'mdeditor/', include('mdeditor.urls')),
+    # django关闭debug模式后，静态文件无法访问，这里要设置下静态文件的访问路由
+    re_path(r'^media/(?P<path>.*)', static.serve, {"document_root": settings.MEDIA_ROOT}),
 ]
+
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

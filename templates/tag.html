@@ -1,0 +1,91 @@
+{% extends 'base/base1.html' %}
+{% load static %}
+
+{% block CSSBlock %}
+{% include 'html_CSS/IndexCSS.html' %}
+{% endblock %}
+
+{% block main %}
+    <!--主体-->
+    <div class="big-container">
+        <article class="article">
+            <!--右容器-->
+            <div class="right-holder">
+                <div class="column-container">
+                    <ul class="column_box" id="like-box">
+                        <li class="column-title">
+                            <span class="at-sort b-b-ece fl"><a class="at-sort-comment-a c-666 fl">标签墙</a></span>
+                        </li>
+                        {% for t in Tag %}
+                            <li class="column-category">
+                                <a href="category.html">
+                                    {{ t.tname }}&nbsp;&nbsp;{{ t.counts }}&nbsp;篇
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <!--左容器-->
+            <div class="result-box fl">
+                <!--文章内容-->
+                <div id="article-holder" style="width: 100%; float: left">
+                    {% for art in Article %}
+                        <div class="article-box">
+                            <div class="ab-content">
+                                <a href="{% url 'MyBlog:single' art.id %}" class="article-img-box">
+                                    <img class="lazy-image article-img" data-src="../img/article.jpg" alt="" src="">
+                                </a>
+                                <div class="article-title">
+                                    <a href="{% url 'MyBlog:single' art.id %}">{{ art.title }}</a>
+                                </div>
+                                <div class="article-cate"><a href="category.html">{{ art.category }}</a>
+                                    {% for a in art.taglist %}
+                                        <a href="tag.html">{{ a }}</a>
+                                    {% endfor %}
+                                </div>
+                                <div class="article-detail-box c-666">
+                                    {{ art.desc }}
+                                </div>
+                                <span class="article-tail-box">
+                                    <i class="fl"
+                                        style= 'background-image: url(" {% static 'img/read.svg' %}") '></i>
+                                    <span class="read-number c-999 fl">47</span>
+                                    <i class="fl"
+                                        style= 'background-image: url(" {% static 'img/comment.svg' %}") '></i>
+                                    <span class="comment-number c-999 fl">{{ art.comment_count }}</span>
+                                    <span class="article-date c-999">{{ art.create }}</span>
+                                    <span class="article-author one-line-overflow c-999">admin</span>
+                                </span>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                <div id="pagination" class="pagination f1">
+                    <ui>
+                        {%if 1 != Article.number%}
+                            <a href="{% url 'MyBlog:tag' %}?page=1"><li class="disabled">首页</li></a>
+                        {% endif %}
+                        {% if Article.has_previous %}
+                            <a href="{% url 'MyBlog:tag' %}?page={{ Article.previous_page_number }}"><li class="disabled">«</li></a>
+                        {% endif %}
+                        {%for pindex in pages%}
+                        <!--如果选择的是当前页，则标记为活动样式-->
+                            {%if pindex == Article.number%}
+                                <a href="#"><li class="active">{{pindex}}</li></a>
+                            {%else%}
+                                <a href="{% url 'MyBlog:tag' %}?page={{ pindex }}"><li>{{pindex}}</li></a>
+                            {%endif%}
+                        {%endfor%}
+                        {% if Article.has_next %}
+                            <a href="{% url 'MyBlog:tag' %}?page={{ Article.next_page_number }}"><li class="disabled">»</li></a>
+                        {% endif %}
+                    </ui>
+                </div>
+                <!--分页指示器-->
+                </div>
+            </div>
+        </article>
+    </div>
+
+{% endblock %}

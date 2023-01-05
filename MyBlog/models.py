@@ -1,5 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
+from mdeditor.fields import MDTextField
 
 
 class Category(models.Model):
@@ -27,7 +28,7 @@ class Tag(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100, unique=True, verbose_name='标题')
     desc = models.CharField(max_length=200, verbose_name='描述')
-    content = HTMLField(blank=True, verbose_name='内容')
+    content = MDTextField(blank=True, verbose_name='内容')
     create = models.DateTimeField(auto_now_add=True, verbose_name='创建日期')
     modify = models.DateTimeField(auto_now=True, verbose_name='修改日期')
     is_delete = models.BooleanField(default=False, verbose_name='删除标记')
@@ -42,3 +43,20 @@ class Article(models.Model):
         verbose_name = '文章'
         verbose_name_plural = verbose_name
         ordering = ['id']
+
+class Comment(models.Model):
+    name = models.CharField(max_length=20,verbose_name='昵称')
+    email = models.EmailField(verbose_name='邮箱',null=True)
+    url = models.URLField(verbose_name='网址',null=True)
+    content = models.TextField(verbose_name='内容')
+    create = models.DateTimeField(auto_now_add=True, verbose_name='创建日期')
+    modify = models.DateTimeField(auto_now=True, verbose_name='修改日期')
+    article = models.ForeignKey('Article', on_delete=models.DO_NOTHING, verbose_name='文章')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'comment'
+        verbose_name = '评论'
+        verbose_name_plural = verbose_name

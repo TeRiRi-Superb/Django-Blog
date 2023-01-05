@@ -19,10 +19,14 @@ from MyBlog.views import *
 urlpatterns = [
     # path('',Index.as_view(), name='index'),
     # path('blogs/',Blogs.as_view(), name='blogs'),
-    re_path(r'^blogs/(?P<page>.*)$', Blogs.as_view(), name='blogs'),
-    re_path(r'^single/(?P<id>.*)$', Single.as_view(), name='single'),
-    path('about/',About.as_view(), name='about'),
-    path('contact/',Contact.as_view(), name='contact'),
+    path('category/', CateView.as_view(), name='category'),
+    path('tag/', TagView.as_view(), name='tag'),
+    path('archive/', ArchiveView.as_view(), name='archive'),
+    path('link/', LinkView.as_view(), name='link'),
 
-    re_path(r'^(?P<page>.*)$', Index.as_view(), name='index'),
+    # re_path(r'^catelink/(?P<page>.*)$', CateLink.as_view(), name='catelink'),
+    # re_path(r'^taglink/(?P<page>.*)$', TagLink.as_view(), name='taglink'),
+    re_path(r'^single/(?P<id>.*)$', Single.as_view(), name='single'),
+
+    path('', Index.as_view(), name='index'),
 ]

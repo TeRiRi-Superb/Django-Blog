@@ -1,0 +1,115 @@
+{% extends 'base/base1.html' %}
+{% load static %}
+{% block CSSBlock %}
+    {% include 'html_CSS/articleCSS.html' %}
+{% endblock %}
+    <!--主体-->
+{% block main %}
+    <!--文章目录-->
+    <div class="toc">
+        <ul>
+            <li><a href="#_1">二. 栈和队列</a>
+                <ul>
+                    <li><a href="#1">1. 栈</a>
+                        <ul>
+                            <li><a href="#1_1">(1) 概念</a></li>
+                            <li><a href="#2">(2) 数据结构</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#2_1">2. 队列</a>
+                        <ul>
+                            <li><a href="#1_2">(1) 概念</a></li>
+                            <li><a href="#2_2">(2) 数据结构</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!--主体-->
+    <section class="main">
+        <label for="article_id"></label><input hidden id="article_id" name="article_id" value="55">
+        <label for="user_id"></label><input hidden id="user_id" name="user_id"
+            value="{">
+        <div class="left-box">
+            <div id="outerdiv">
+                <div id="innerdiv" style="position:absolute;"><img alt id="bigimg"
+                        style="box-shadow: 0 0 10px rgba(0,0,0,0.38)" src="" />
+                </div>
+            </div>
+            <!--文章内容-->
+            <div class="article-container">
+                <div class="article-content markdown-body">
+                    <h1 style="margin: 10px 0">{{ Blog.title }}</h1>
+                    <div class="article-cate">
+                        <a href="category.html">{{ Blog.category }}</a>
+                        <a href="tag.html">{{ Blog.tname }}</a>
+                    </div>
+                    <div class="writer-info">
+                        <span style="margin: 5px 0;">作者: </span>
+                        <span id="writer">admin </span>
+                        <span id="write-time">{{ Blog.create }}</span>
+                        <span>阅读(<span id="read-number">48</span>)</span>
+                        <span>评论(<span id="read-number">0</span>)</span>
+                    </div>
+                    {% autoescape off %}
+                        {{ Blog.content }}
+                    {% endautoescape %}
+                <div class="prev-next">
+                    <div class="p-div">
+                        <span class="fl">上一篇：</span>
+                        <a class="one-line-overflow fl" href="/front/articleDetail/54/" id="prev-a">线性表</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--评论-->
+            <div class="comment-container" style="margin-top: 20px; margin-bottom: 10px">
+                <div class="sort-box">
+                    <span class="at-sort-s fl"><a style="box-sizing: content-box;"
+                            class="at-sort-comment-a c-666">评论</a></span>
+                    <span class="location fl c-666"><a class="at-sort-detail c-666"></a> </span>
+                </div>
+                <div class="total-count">
+                    共 <span id="comment-count">{{ Comment.count }}</span> 条评论
+                </div>
+                {% for c in Comment %}c
+                    <div class="comment-item">
+                        <div class="user-img-box">
+                            <img src="../img/user.jpeg" id="user-img" alt="">
+                        </div>
+                        <div class="comment-box">
+                            <div class="user-info">
+                                <span class="user-name">admin</span>
+                                <span class="publish-time">{{ c.create }}</span>
+                            </div>
+
+                            <div class="comment-content c-666">
+                                <p>{{ c.content }}</p>
+                            </div>
+                            <div class="icon-line">
+                                <a href="javascript:void(0)" class="comment-icon"
+                                    style="background-image: url('https://zhaoyangkun.gitee.io/blog-static/img/comment.svg');"
+                                    onclick="show_reply(this)"></a>
+                                <span class="reply_count c-666">0</span>
+                                <a href="javascript:void(0)" class="liked-icon"
+                                    style="background-image: url('https://zhaoyangkun.gitee.io/blog-static/img/liked.svg');"
+                                    onclick="like_comment(29)"></a>
+                                <span class="liked_count c-666">0</span>
+                            </div>
+                            <div class="reply-holder" style="display: none;">
+                                <input class="reply-btn" type="button" onclick="reply_comment(this,29,22,41)" value="回复">
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="{% static 'js/vditor.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/article-detail.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+{% endblock %}
+

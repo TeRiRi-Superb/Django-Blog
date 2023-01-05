@@ -1,0 +1,36 @@
+{% extends 'base/base1.html' %}
+{% load static %}
+
+{% block CSSBlock %}
+{% include 'html_CSS/IndexCSS.html' %}
+{% endblock %}
+
+{% block main %}
+    <main class="big-container">
+        <article class="article">
+            <ul class="achieve-box">
+            {% regroup article|dictsortreversed:'create' by create.year as year_time %}
+                {% for year in year_time %}
+                    {% regroup year.list by create.month as month_time %}
+                        {% for month in month_time  %}
+                            <li class="year">
+                                {{ year.grouper }} 年 {{ month.grouper }} 月 <span style="color: #3aa4ff">{{ month.list|length }}</span> 篇
+                            </li>
+
+                            {% for a in month.list %}
+                                <li class="detail-item">
+                                    <span class="date">{{ a.create | date:"m-d"}}</span>
+                                    <a href="{% url 'MyBlog:single' a.id %}" class="title">{{ a.title }}</a>
+                                </li>
+                            {% endfor %}
+
+                        {% endfor %}
+
+
+                {% endfor %}
+
+
+            </ul>
+        </article>
+    </main>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base/login_base.html' %}
+{% block login_title %}
+注册
+{% endblock %}
+{% block login_main %}
+    <div class="main">
+        <div class="form">
+            <a class="not-on" id="landing" href="{% url 'User:login' %}">登录</a>
+            <a class="on" id="registered" href="{% url 'User:register' %}">注册</a>
+            <div class="fix"></div>
+
+            <form type="POST" action="/admin/register" id="registered-content" data-form='ajax'>
+                {% csrf_token %}
+                <div class="inp">
+                    <label><input class="inp-input" data-required="请输入用户名" data-rule="^[a-zA-Z0-9_-]{4,16}$"
+                            data-rule-message="请输入4至16位普通字符" data-block="true" id="user_name_r" name="user_name"
+                            type="text" placeholder="请输入用户名" /></label>
+                </div>
+                <div class="inp">
+                    <label><input class="inp-input" data-required="请输入密码" data-rule="^[\w_-]{6,16}$"
+                            data-rule-message="请输入6至16位普通字符" data-block="true" id="pwd_r" name="pwd" type="password"
+                            placeholder="请输入密码" /></label>
+                </div>
+                <div class="inp">
+                    <label><input class="inp-input" data-required="请输入确认密码" data-equal="#pwd_r" id="pwd_confirm_r"
+                            name="pwd" type="password" data-block="true" placeholder="请再次输入密码" /></label>
+                </div>
+                <div class="inp">
+                    <label><input class="inp-input" data-required="请输入邮箱" data-email="true" id="email_r" name="email"
+                            type="text" data-block="true" placeholder="电子邮箱" /></label>
+                </div>
+                <input onclick="send_email()" id="send-code" type="button" class="login" value="发送验证码">
+                <div class="inp">
+                    <label><input class="inp-input" data-required="请输入验证码" id="email_code" name="email_code" type="text"
+                            data-block="true" placeholder="邮箱验证码" /></label>
+                </div>
+                <button id="register" type="submit" class="login">立即注册</button>
+                <div id="bottom">
+                    <a href="index.html " id="registeredtxt">回到首页</a>
+                    <a href="forget-pwd.html" onclick="" id="forgotpassword">忘记密码</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

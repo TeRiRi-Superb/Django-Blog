@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MyBlog',
     'tinymce',
+    'mdeditor'
 ]
 
 MIDDLEWARE = [
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/ShangHai'
 
 USE_I18N = True
 
@@ -132,6 +133,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static', 'js'),
     os.path.join(BASE_DIR, 'static', 'img'),
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
