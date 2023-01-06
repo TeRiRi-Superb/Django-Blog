@@ -2,55 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c70a13ef-3ffc-4e61-b4a8-78cb49fcea0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/base/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyBlog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyBlog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyBlog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyBlog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyBlog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyBlog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/autumn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/borland.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/bw.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/colorful.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/emacs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/friendly.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/fruity.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/github.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/manni.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/monokai.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/murphy.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/native.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/pastie.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/perldoc.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/tango.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/trac.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/vim.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/vs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/highlights/zenburn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/pace.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/me.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery-2.1.3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/modernizr.custom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/pace.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/full-width.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/full-width12.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/right_block.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/single.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -541,12 +493,12 @@
       <workItem from="1672654326347" duration="3692000" />
       <workItem from="1672739749636" duration="13713000" />
       <workItem from="1672806379057" duration="17011000" />
-      <workItem from="1672923142672" duration="5787000" />
+      <workItem from="1672923142672" duration="6382000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121071000" />
+    <option name="totallyTimeSpent" value="121666000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,7 +518,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22096318" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22096318" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

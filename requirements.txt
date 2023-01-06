@@ -1,7 +1,11 @@
 asgiref==3.5.2
 Django==3.2.5
 django-js-asset==2.0.0
+django-mdeditor==0.1.20
 django-tinymce==2.8.0
+importlib-metadata==5.2.0
+Markdown==3.4.1
 PyMySQL==1.0.2
 pytz==2022.6
 sqlparse==0.4.3
+zipp==3.11.0
